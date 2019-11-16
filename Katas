@@ -1,0 +1,24 @@
+const strCount = (str, letter) => {  
+  let arrayLetras = str.split("");
+  return arrayLetras.filter(letra => letra === letter).length
+}
+
+const getNames = data => {
+  return data.map(item => item.name)
+}
+
+const whosOnline = (friends) => {
+  let output={}
+  friends.map((friend)=>{
+      if(friend.status==="online" && friend.lastActivity>10){
+          output.away = []
+          output.away.push(friend.username)  }
+      else if(friend.status==="online"){
+        output.online = []
+        output.online.push(friend.username) }
+      else{
+          output.offline = []
+          output.offline.push(friend.username) }
+    })
+    return output
+}
